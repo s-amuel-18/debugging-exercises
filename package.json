@@ -1,0 +1,37 @@
+{
+  "name": "javascript-debugging-exercises",
+  "version": "1.0.0",
+  "description": "A comprehensive collection of hands-on debugging exercises for learning JavaScript debugging skills",
+  "main": "index.js",
+  "scripts": {
+    "test": "jest",
+    "test:watch": "jest --watch",
+    "test:calculator": "jest exercises/01-calculator-error"
+  },
+  "jest": {
+    "testEnvironment": "node",
+    "verbose": true,
+    "collectCoverage": false
+  },
+  "keywords": [
+    "javascript",
+    "debugging",
+    "education",
+    "exercises",
+    "learning",
+    "tutorial",
+    "bugs"
+  ],
+  "author": "",
+  "license": "MIT",
+  "repository": {
+    "type": "git",
+    "url": ""
+  },
+  "engines": {
+    "node": ">=14.0.0"
+  },
+  "devDependencies": {
+    "jest": "^30.2.0"
+  }
+}
