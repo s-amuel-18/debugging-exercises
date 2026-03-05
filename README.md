@@ -184,6 +184,11 @@ This project is designed to be LLM-friendly. See [LLM_GUIDE.md](./LLM_GUIDE.md) 
 8. ✅ **08-hotel-booking-system** - Error Lógico: Lógica de negocio y reportes financieros (Avanzado)
 9. ✅ **09-ecommerce-cart-manager** - Error Lógico / Ejecución: Control de stock, fechas e impuestos (Intermedio)
 10. ✅ **10-subscription-billing** - Error Lógico: Prorrateo, reembolsos y descuentos en suscripciones SaaS (Intermedio)
+11. ✅ **11-password-validator** - Error Lógico: Validación de longitud, complejidad y fortaleza de contraseñas (Principiante)
+12. ✅ **12-library-catalog** - Error de Ejecución: Préstamos y devoluciones de libros con referencias nulas (Intermedio)
+13. ✅ **13-weather-forecast** - Error Asíncrono: Consultas de clima en paralelo con Promise.all y async/await (Intermedio)
+14. ✅ **14-tournament-standings** - Error Lógico: Puntuación, registro de partidos y tabla de posiciones (Avanzado)
+15. ✅ **15-text-statistics** - Error Lógico: Conteo de palabras, promedio de longitud y frecuencia (Intermedio)
 
 ### Coming Soon
 
