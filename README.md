@@ -179,6 +179,7 @@ This project is designed to be LLM-friendly. See [LLM_GUIDE.md](./LLM_GUIDE.md) 
 3. ✅ **03-async-user-auth** - Error Asíncrono: Promesas y fetch con API externa (Intermedio)
 4. ✅ **04-online-store-logic** - Error Lógico: Motor de tienda online con 7 funciones (Intermedio)
 5. ✅ **05-bank-account-oop** - Error Lógico: Sistema bancario con clases OOP (Avanzado)
+6. ✅ **06-task-manager** - Error de Ejecución: Accesos inválidos y validaciones ausentes (Intermedio)
 
 ### Coming Soon
 
