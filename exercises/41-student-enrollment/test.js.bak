@@ -1,0 +1,112 @@
+/**
+ * Pruebas para Student Enrollment
+ * Ejecutar con: npm test exercises/41-student-enrollment
+ */
+
+const { Course, Student, EnrollmentSystem } = require('./solution.js');
+
+describe('Student Enrollment', () => {
+  let system;
+
+  beforeEach(() => {
+    system = new EnrollmentSystem();
+
+    system.addCourse(new Course('CS101', 'Intro to CS', 3, []));
+    system.addCourse(new Course('CS201', 'Data Structures', 3, ['CS101']));
+    system.addCourse(new Course('CS301', 'Algorithms', 4, ['CS201']));
+    system.addCourse(new Course('MATH101', 'Calculus I', 4, []));
+    system.addCourse(new Course('CS401', 'AI Fundamentals', 3, ['CS301', 'MATH101']));
+  });
+
+  describe('Course - creación', () => {
+    test('debe crear un curso con sus propiedades', () => {
+      const course = new Course('CS101', 'Intro to CS', 3, []);
+      expect(course.id).toBe('CS101');
+      expect(course.name).toBe('Intro to CS');
+      expect(course.credits).toBe(3);
+      expect(course.prerequisites).toEqual([]);
+    });
+  });
+
+  describe('EnrollmentSystem - inscripción con prerequisitos', () => {
+    test('debe inscribir a un estudiante en un curso sin prerequisitos', () => {
+      const student = new Student('S001', 'Ana', []);
+      system.enroll(student, 'CS101');
+      expect(student.enrolledCourses).toContain('CS101');
+    });
+
+    test('debe inscribir si el estudiante tiene los prerequisitos completados', () => {
+      const student = new Student('S002', 'Luis', ['CS101']);
+      system.enroll(student, 'CS201');
+      expect(student.enrolledCourses).toContain('CS201');
+    });
+
+    test('debe rechazar inscripción si faltan prerequisitos', () => {
+      const student = new Student('S003', 'María', []);
+      expect(() => system.enroll(student, 'CS201')).toThrow();
+    });
+
+    test('debe rechazar si faltan algunos prerequisitos (prerequisito parcial)', () => {
+      const student = new Student('S004', 'Pedro', ['CS301']);
+      expect(() => system.enroll(student, 'CS401')).toThrow();
+    });
+
+    test('debe permitir inscripción cuando tiene TODOS los prerequisitos de un curso con múltiples', () => {
+      const student = new Student('S005', 'Sara', ['CS301', 'MATH101']);
+      system.enroll(student, 'CS401');
+      expect(student.enrolledCourses).toContain('CS401');
+    });
+
+    test('no debe inscribir dos veces al mismo curso', () => {
+      const student = new Student('S006', 'Carlos', []);
+      system.enroll(student, 'CS101');
+      expect(() => system.enroll(student, 'CS101')).toThrow();
+    });
+  });
+
+  describe('EnrollmentSystem - límite de créditos', () => {
+    test('debe rechazar inscripción si excede 18 créditos por semestre', () => {
+      const student = new Student('S007', 'Julia', []);
+      system.enroll(student, 'CS101');  // 3
+      system.enroll(student, 'MATH101'); // 4 → total 7
+
+      system.addCourse(new Course('ENG101', 'English', 4, []));
+      system.addCourse(new Course('PHY101', 'Physics', 4, []));
+      system.addCourse(new Course('HIS101', 'History', 4, []));
+
+      system.enroll(student, 'ENG101');  // 4 → total 11
+      system.enroll(student, 'PHY101');  // 4 → total 15
+      expect(() => system.enroll(student, 'HIS101')).toThrow(); // 19 → excede límite
+
+      expect(student.enrolledCourses.length).toBe(4); // solo 4 cursos
+    });
+  });
+
+  describe('EnrollmentSystem - reportes', () => {
+    test('debe calcular los créditos totales del estudiante', () => {
+      const student = new Student('S008', 'Tom', []);
+      system.enroll(student, 'CS101');
+      system.enroll(student, 'MATH101');
+      expect(system.getTotalCredits(student)).toBe(7);
+    });
+
+    test('debe retornar cursos disponibles para un estudiante', () => {
+      const student = new Student('S009', 'Eva', ['CS101']);
+      const available = system.getAvailableCourses(student);
+      const availableIds = available.map(c => c.id);
+      expect(availableIds).toContain('CS201');
+      expect(availableIds).toContain('MATH101');
+      expect(availableIds).not.toContain('CS301');
+    });
+
+    test('debe retornar la lista de estudiantes inscritos en un curso', () => {
+      const s1 = new Student('S010', 'Nico', []);
+      const s2 = new Student('S011', 'Lara', []);
+      system.enroll(s1, 'CS101');
+      system.enroll(s2, 'CS101');
+      const enrolled = system.getEnrolledStudents('CS101');
+      expect(enrolled.length).toBe(2);
+      expect(enrolled.map(s => s.id)).toContain('S010');
+    });
+  });
+});
