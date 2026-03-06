@@ -1,0 +1,80 @@
+/**
+ * Pruebas para Tax Calculator
+ * Ejecutar con: npm test exercises/50-tax-calculator
+ */
+
+const { calculateTax, getTaxBreakdown, compareTaxScenarios } = require('./buggy-code.js');
+
+describe('Tax Calculator', () => {
+  // Tramos: 0-10000 → 10%, 10001-40000 → 20%, 40001-80000 → 30%, >80000 → 40%
+  const brackets = [
+    { min: 0,     max: 10000,  rate: 0.10 },
+    { min: 10001, max: 40000,  rate: 0.20 },
+    { min: 40001, max: 80000,  rate: 0.30 },
+    { min: 80001, max: Infinity, rate: 0.40 },
+  ];
+
+  describe('calculateTax - impuesto total progresivo', () => {
+    test('debe calcular impuesto dentro del primer tramo', () => {
+      // 5000 * 10% = 500
+      expect(calculateTax(5000, brackets)).toBeCloseTo(500);
+    });
+
+    test('debe calcular impuesto que abarca dos tramos', () => {
+      // 10000*10% + 10000*20% = 1000 + 2000 = 3000  (ingreso = 20000)
+      expect(calculateTax(20000, brackets)).toBeCloseTo(3000);
+    });
+
+    test('debe calcular impuesto que abarca tres tramos', () => {
+      // 10000*10% + 30000*20% + 10000*30% = 1000+6000+3000 = 10000  (ingreso = 50000)
+      expect(calculateTax(50000, brackets)).toBeCloseTo(10000);
+    });
+
+    test('debe calcular impuesto en todos los tramos', () => {
+      // 10000*10% + 30000*20% + 40000*30% + 20000*40% = 1000+6000+12000+8000 = 27000
+      expect(calculateTax(100000, brackets)).toBeCloseTo(27000);
+    });
+
+    test('debe retornar 0 para ingreso 0', () => {
+      expect(calculateTax(0, brackets)).toBe(0);
+    });
+  });
+
+  describe('getTaxBreakdown - desglose por tramo', () => {
+    test('debe retornar el desglose correcto para ingreso en dos tramos', () => {
+      const breakdown = getTaxBreakdown(20000, brackets);
+      expect(breakdown.length).toBe(2);
+      expect(breakdown[0].tax).toBeCloseTo(1000);
+      expect(breakdown[1].tax).toBeCloseTo(2000);
+    });
+
+    test('debe incluir la tasa efectiva total', () => {
+      // 20000 → 3000 impuesto → tasa efectiva = 3000/20000 = 15%
+      const breakdown = getTaxBreakdown(20000, brackets);
+      const totalTax = breakdown.reduce((s, b) => s + b.tax, 0);
+      const effective = totalTax / 20000;
+      expect(effective).toBeCloseTo(0.15);
+    });
+  });
+
+  describe('compareTaxScenarios - comparación de escenarios', () => {
+    test('debe retornar el escenario con menor impuesto como recomendado', () => {
+      const scenarios = [
+        { label: 'Individual', income: 100000 },
+        { label: 'Conjunto', income: 50000 },
+      ];
+      const result = compareTaxScenarios(scenarios, brackets);
+      expect(result.recommended.label).toBe('Conjunto');
+    });
+
+    test('debe calcular el ahorro entre escenarios', () => {
+      const scenarios = [
+        { label: 'A', income: 100000 },
+        { label: 'B', income: 50000 },
+      ];
+      const result = compareTaxScenarios(scenarios, brackets);
+      // A paga 27000, B paga 10000, ahorro = 17000
+      expect(result.savings).toBeCloseTo(17000);
+    });
+  });
+});
