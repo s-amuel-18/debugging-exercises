@@ -227,6 +227,7 @@ This project is designed to be LLM-friendly. See [LLM_GUIDE.md](./LLM_GUIDE.md) 
 51. ✅ **51-voting-system** - Error Lógico: `getWinner` usa `>= 0.5` en lugar de `> 0.5`, declarando ganador con exactamente el 50% de los votos en lugar de exigir mayoría absoluta estricta (Intermedio)
 52. ✅ **52-inventory-reorder** - Error Lógico: Punto de reorden usa `demanda × safetyStock + leadTime` en lugar de `demanda × leadTime + safetyStock`, intercambiando los operandos y produciendo valores incorrectos (Principiante)
 53. ✅ **53-discount-engine** - Error Lógico: `stackDiscounts` suma todas las tasas y aplica una sola vez al precio original en lugar de aplicar cada descuento secuencialmente sobre el precio resultante, sobreestimando el ahorro (Principiante)
+54. ✅ **54-leaderboard** - Error Lógico: `getPlayerBest` retorna el primer puntaje enviado (`scores[0]`) en lugar del máximo (`Math.max`), ignorando cualquier mejora posterior del jugador (Principiante)
 
 ## 🔧 Troubleshooting
 
