@@ -206,6 +206,7 @@ This project is designed to be LLM-friendly. See [LLM_GUIDE.md](./LLM_GUIDE.md) 
 30. ✅ **30-email-extractor** - Error Lógico: Flag `i` ausente en el regex impide capturar emails con letras mayúsculas (Intermedio)
 31. ✅ **31-slug-generator** - Error Lógico: `toLowerCase()` aplicado después del filtro regex omite letras mayúsculas del slug (Intermedio)
 32. ✅ **32-roman-numeral-converter** - Error Lógico: Tabla de valores en orden ascendente impide que el algoritmo greedy aplique las reglas de sustracción (Intermedio)
+33. ✅ **33-run-length-encoder** - Error Lógico: Patrón `\d` en lugar de `\d+` en decode impide manejar conteos de dos o más dígitos (Intermedio)
 
 ## 🔧 Troubleshooting
 
