@@ -230,6 +230,7 @@ This project is designed to be LLM-friendly. See [LLM_GUIDE.md](./LLM_GUIDE.md) 
 54. ✅ **54-leaderboard** - Error Lógico: `getPlayerBest` retorna el primer puntaje enviado (`scores[0]`) en lugar del máximo (`Math.max`), ignorando cualquier mejora posterior del jugador (Principiante)
 55. ✅ **55-word-frequency** - Error Lógico: `termFrequency` divide entre palabras únicas en lugar del total de palabras, inflando los valores de TF y haciendo que su suma supere 1 (Intermedio)
 56. ✅ **56-library-fines** - Error Lógico: `calculateFine` calcula `dueDate - returnDate` en lugar de `returnDate - dueDate`, invirtiendo el signo y cobrando $0 por devoluciones tardías (Principiante)
+57. ✅ **57-stock-portfolio** - Error Lógico: `getAnnualizedReturn` usa `totalReturn / years` (promedio simple) en lugar de la fórmula CAGR compuesta `(1+r)^(1/n) - 1`, sobreestimando el retorno anual (Intermedio)
 
 ## 🔧 Troubleshooting
 
