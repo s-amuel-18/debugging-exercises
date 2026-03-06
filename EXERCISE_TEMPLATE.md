@@ -155,86 +155,7 @@ if (require.main === module) {
 - Incluir comentarios "CORREGIDO:"
 - Explicar POR QUÉ funciona la corrección
 
-### 4. EXPLANATION.md
-
-````markdown
-# Explicación del Error: [Nombre del Ejercicio]
-
-## 🐛 El Error
-
-[Descripción clara de exactamente qué está mal]
-
-**Síntoma**: [Lo que los desarrolladores observarían]
-
-**Ubicación**: [Dónde en el código]
-
-## 🔍 Causa Raíz
-
-[Análisis profundo de POR QUÉ existe este bug]
-
-### Por Qué Ocurre Esto
-
-[Escenarios comunes que llevan a este bug]
-
-## 🕵️ Cómo Identificar Este Bug
-
-1. **[Técnica 1]**: [Descripción]
-   - Cómo ayuda: [Explicación]
-2. **[Técnica 2]**: [Descripción]
-   - Cómo ayuda: [Explicación]
-
-### Depuración con Console.log
-
-```javascript
-console.log('[variable]:', [variable]);
-// Esto mostraría: [qué revela]
-```
-````
-
-## 🔧 La Solución
-
-### Antes (Con Error)
-
-```javascript
-[fragmento de código con error]
-```
-
-### Después (Corregido)
-
-```javascript
-[fragmento de código corregido]
-```
-
-### Por Qué Esto Funciona
-
-[Explicación de por qué la corrección resuelve el problema]
-
-## 🛡️ Estrategias de Prevención
-
-1. **[Práctica 1]**: [Descripción]
-   - Por qué ayuda: [Explicación]
-
-2. **[Práctica 2]**: [Descripción]
-   - Por qué ayuda: [Explicación]
-
-## 📚 Puntos Clave
-
-- ✅ [Lección importante 1]
-- ✅ [Lección importante 2]
-- ✅ [Lección importante 3]
-
-## 🔗 Conceptos Relacionados
-
-[Opcional: Enlaces a docs o ejercicios relacionados]
-
-## 💡 Reflexiona
-
-- [Pregunta que invita a pensar 1]
-- [Pregunta que invita a pensar 2]
-
-````
-
-### 5. test.js
+### 4. test.js
 
 ```javascript
 /**
@@ -307,7 +228,7 @@ Usa este checklist para asegurar completitud:
 
 ### Pruebas
 
-- [ ] test.js ejecuta con `node test.js`
+- [ ] test.js ejecuta con `npm test exercises/##-nombre-ejercicio`
 - [ ] Las pruebas FALLAN con buggy-code.js
 - [ ] Las pruebas PASAN con solution.js
 - [ ] Al menos 5 casos de prueba cubriendo diferentes escenarios
@@ -317,8 +238,6 @@ Usa este checklist para asegurar completitud:
 
 - [ ] README.md tiene formato Scrum claro (historia, criterios, problema)
 - [ ] **SIN sección de hints** - depuración es 100% del estudiante
-- [ ] EXPLANATION.md explica el bug completamente
-- [ ] Estrategias de prevención son prácticas
 - [ ] **Toda documentación en español**
 
 ### Calidad
