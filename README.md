@@ -189,6 +189,7 @@ This project is designed to be LLM-friendly. See [LLM_GUIDE.md](./LLM_GUIDE.md) 
 13. ✅ **13-weather-forecast** - Error Asíncrono: Consultas de clima en paralelo con Promise.all y async/await (Intermedio)
 14. ✅ **14-tournament-standings** - Error Lógico: Puntuación, registro de partidos y tabla de posiciones (Avanzado)
 15. ✅ **15-text-statistics** - Error Lógico: Conteo de palabras, promedio de longitud y frecuencia (Intermedio)
+16. ✅ **16-flight-booking-system** - Error de Ejecución: Accesos a propiedades undefined y división por cero en reservas de vuelos (Intermedio)
 
 ### Coming Soon
 
