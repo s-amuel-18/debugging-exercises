@@ -212,6 +212,7 @@ This project is designed to be LLM-friendly. See [LLM_GUIDE.md](./LLM_GUIDE.md) 
 36. ✅ **36-grade-curve** - Error Lógico: Curva calculada dividiendo entre el promedio en lugar del máximo, distorsionando las proporciones (Intermedio)
 37. ✅ **37-poker-hand-ranker** - Error Lógico: Operador `||` en lugar de `&&` en la condición de full house clasifica tríos incorrectamente (Intermedio)
 38. ✅ **38-calendar-builder** - Error Lógico: `getDay()` sin conversión coloca lunes en índice 1 en vez de 0, desfasando toda la cuadrícula (Intermedio)
+39. ✅ **39-playlist-manager** - Error Lógico: Comparador numérico invertido (`b - a`) ordena canciones por duración y BPM de forma descendente en lugar de ascendente (Intermedio)
 
 ## 🔧 Troubleshooting
 
