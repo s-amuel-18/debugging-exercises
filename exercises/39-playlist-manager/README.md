@@ -2,11 +2,11 @@
 
 **Tipo**: Error Lógico
 
-## Historia de Usuario
+## 📋 Historia de Usuario
 
 Como usuario de una aplicación de música, necesito gestionar playlists con canciones ordenadas correctamente por duración y BPM para poder reproducirlas en el orden deseado.
 
-## Criterios de Aceptación
+## 🎯 Criterios de Aceptación
 
 - Las canciones deben poder ordenarse por duración de forma ascendente
 - Las canciones deben poder ordenarse por BPM de forma ascendente
@@ -15,7 +15,7 @@ Como usuario de una aplicación de música, necesito gestionar playlists con can
 - La fusión de dos playlists no debe generar duplicados
 - Las estadísticas de BPM promedio y top artistas deben ser correctas
 
-## Problema Reportado
+## 🐛 Problema Reportado
 
 El equipo de QA reporta que al ordenar una playlist por duración o por BPM, el resultado llega en orden inverso al esperado: las canciones más largas aparecen primero y las de menor BPM al final.
 
@@ -25,13 +25,13 @@ El equipo de QA reporta que al ordenar una playlist por duración o por BPM, el 
 - Playlist con canciones de 80, 110 y 140 BPM ordenada por BPM retorna `[140, 110, 80]` en vez de `[80, 110, 140]`
 - El ordenamiento por título sí funciona correctamente
 
-## Archivos
+## 📂 Archivos
 
 - `buggy-code.js` - Código con el error
 - `test.js` - Pruebas para validar la solución (Jest)
 - `solution.js` - Solución de referencia (para comparar después)
 
-## Cómo Verificar
+## ✅ Cómo Verificar la Solución
 
 ```bash
 npm test exercises/39-playlist-manager
@@ -41,7 +41,7 @@ Todas las pruebas deben pasar para considerar el error corregido.
 
 **Nota**: Los tests están configurados para probar `buggy-code.js` por defecto. Cuando corrijas el error, cambia la línea de importación en `test.js` a `solution.js` para verificar tu solución.
 
-## Nivel de Dificultad
+## ⚙️ Nivel de Dificultad
 
 **Nivel**: Intermedio
 

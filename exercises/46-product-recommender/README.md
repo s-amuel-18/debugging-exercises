@@ -2,18 +2,18 @@
 
 **Tipo**: Error Lógico
 
-## Historia de Usuario
+## 📋 Historia de Usuario
 
 Como usuario de una tienda online, necesito recibir recomendaciones personalizadas basadas en los productos que compraron usuarios con gustos similares a los míos.
 
-## Criterios de Aceptación
+## 🎯 Criterios de Aceptación
 
 - La similitud entre usuarios debe calcularse con el índice de Jaccard: `|A ∩ B| / |A ∪ B|`
 - Dos usuarios sin compras en común deben tener similitud `0`
 - Dos usuarios con compras idénticas deben tener similitud `1`
 - Los productos recomendados no deben incluir los ya comprados por el usuario
 
-## Problema Reportado
+## 🐛 Problema Reportado
 
 El motor de recomendación devuelve similitud `1` entre todos los pares de usuarios sin importar sus historiales de compra. Usuarios que no compraron ningún producto en común aparecen como idénticos.
 
@@ -23,13 +23,13 @@ El motor de recomendación devuelve similitud `1` entre todos los pares de usuar
 - `jaccardSimilarity([1,2], [3,4])` retorna `1.0` en vez de `0`
 - Las recomendaciones son incorrectas porque la similitud no diferencia usuarios
 
-## Archivos
+## 📂 Archivos
 
 - `buggy-code.js` - Código con el error
 - `test.js` - Pruebas para validar la solución (Jest)
 - `solution.js` - Solución de referencia (para comparar después)
 
-## Cómo Verificar
+## ✅ Cómo Verificar la Solución
 
 ```bash
 npm test exercises/46-product-recommender
@@ -39,7 +39,7 @@ Todas las pruebas deben pasar para considerar el error corregido.
 
 **Nota**: Los tests están configurados para probar `buggy-code.js` por defecto. Cuando corrijas el error, cambia la línea de importación en `test.js` a `solution.js` para verificar tu solución.
 
-## Nivel de Dificultad
+## ⚙️ Nivel de Dificultad
 
 **Nivel**: Intermedio
 

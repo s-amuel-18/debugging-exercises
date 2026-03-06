@@ -2,11 +2,11 @@
 
 **Tipo**: Error Lógico
 
-## Historia de Usuario
+## 📋 Historia de Usuario
 
 Como bibliotecario, necesito que el sistema calcule correctamente las multas por retraso para cobrar a los usuarios que devuelven libros después de la fecha límite.
 
-## Criterios de Aceptación
+## 🎯 Criterios de Aceptación
 
 - Multa = `Math.max(0, díasDeAtraso) × tarifaDiaria`
 - `díasDeAtraso = fechaDevolucion - fechaVencimiento` (en días)
@@ -14,7 +14,7 @@ Como bibliotecario, necesito que el sistema calcule correctamente las multas por
 - Devolver a tiempo o antes debe generar una multa de $0
 - Una multa nunca debe ser negativa
 
-## Problema Reportado
+## 🐛 Problema Reportado
 
 El sistema no cobra multas cuando se devuelve tarde y genera multas incorrectas cuando se devuelve antes del vencimiento.
 
@@ -24,13 +24,13 @@ El sistema no cobra multas cuando se devuelve tarde y genera multas incorrectas 
 - Vence el 10/03, devuelto el 07/03 (3 días antes) → multa reportada: $1.50 (debería ser $0)
 - El cálculo de días de atraso tiene el signo invertido
 
-## Archivos
+## 📂 Archivos
 
 - `buggy-code.js` - Código con el error
 - `test.js` - Pruebas para validar la solución (Jest)
 - `solution.js` - Solución de referencia (para comparar después)
 
-## Cómo Verificar
+## ✅ Cómo Verificar la Solución
 
 ```bash
 npm test exercises/56-library-fines
@@ -40,7 +40,7 @@ Todas las pruebas deben pasar para considerar el error corregido.
 
 **Nota**: Los tests están configurados para probar `buggy-code.js` por defecto. Cuando corrijas el error, cambia la línea de importación en `test.js` a `solution.js` para verificar tu solución.
 
-## Nivel de Dificultad
+## ⚙️ Nivel de Dificultad
 
 **Nivel**: Principiante
 
