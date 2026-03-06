@@ -243,10 +243,11 @@ This project is designed to be LLM-friendly. See [LLM_GUIDE.md](./LLM_GUIDE.md) 
 
 ### Can't find the bug
 
-- Read the hints in the exercise README
-- Add console.log() statements to track values
-- Check test output for clues
-- Compare your logic to expected behavior
+- Re-lee la sección **Problema Reportado** del README del ejercicio
+- Agrega `console.log()` para rastrear valores intermedios
+- Revisa el output de los tests: el mensaje de error muestra el valor esperado vs. el recibido
+- Ejecuta el archivo con `node buggy-code.js` para ver el comportamiento en aislado
+- Compara línea a línea el código con los criterios de aceptación del README
 
 ## 📄 License
 
