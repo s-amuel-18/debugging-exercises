@@ -27,7 +27,7 @@ const MORSE_CODE = {
   C: '-.-.',
   D: '-..',
   E: '.',
-  F: '..--',  // BUG 1: era '..-.' (código correcto de F)
+  F: '..--',
   G: '--.',
   H: '....',
   I: '..',
@@ -113,7 +113,7 @@ function getMorseSymbolCount(word) {
  * @throws {Error} Si el carácter no existe en MORSE_CODE.
  */
 function encodeChar(char) {
-  if (!Object.prototype.hasOwnProperty.call(MORSE_CODE, char) && char !== ' ') {  // BUG 3: condición con && char !== ' ' hace que el espacio no lance error
+  if (!Object.prototype.hasOwnProperty.call(MORSE_CODE, char) && char !== ' ') {
     throw new Error(
       `Carácter no codificable: "${char}". Solo se admiten letras A-Z y dígitos 0-9.`
     );
@@ -166,7 +166,7 @@ function encodeText(text) {
       word
         .split('')
         .map((ch) => encodeChar(ch))
-        .join('')  // BUG 4: era .join(' ') — sin separador entre letras
+        .join('')
     )
     .join(' / ');
 }
@@ -184,7 +184,7 @@ function encodeText(text) {
  */
 function decodeText(morse) {
   return morse
-    .split('/')  // BUG 5: era .split(' / ') — falta los espacios alrededor de la barra
+    .split('/')
     .map((wordMorse) =>
       wordMorse
         .split(' ')
@@ -212,7 +212,7 @@ function validateText(text) {
   const invalidChars = upper
     .split('')
     .filter((ch) => ch !== ' ')
-    .filter((ch) => Object.prototype.hasOwnProperty.call(MORSE_CODE, ch))  // BUG 6: era !Object.prototype... — negación eliminada, lógica invertida
+    .filter((ch) => Object.prototype.hasOwnProperty.call(MORSE_CODE, ch))
     .reduce((acc, ch) => {
       if (!acc.includes(ch)) acc.push(ch);
       return acc;
@@ -246,7 +246,7 @@ function getMorseStats(text) {
   const encoded = encodeText(upper);
 
   // Contar puntos y guiones en la cadena morse completa
-  const dots = encoded.split('').filter((ch) => ch === '-').length;  // BUG 7: era ch === '.' — cuenta guiones en vez de puntos
+  const dots = encoded.split('').filter((ch) => ch === '-').length;
   const dashes = encoded.split('').filter((ch) => ch === '-').length;
 
   // Total de caracteres no-espacio en el texto original
@@ -259,7 +259,7 @@ function getMorseStats(text) {
   }));
 
   const longestWord = wordsWithCount.reduce(
-    (best, current) => (current.count < best.count ? current : best),  // BUG 8: era current.count > best.count — encuentra la más corta en vez de la más larga
+    (best, current) => (current.count < best.count ? current : best),
     wordsWithCount[0]
   ).word;
 
@@ -300,7 +300,7 @@ function sortWordsByMorseLength(words) {
       if (a.count === -1 && b.count === -1) return 0;
       if (a.count === -1) return 1;
       if (b.count === -1) return -1;
-      return a.count - b.count;  // BUG 9: era b.count - a.count — ordena ascendente en vez de descendente
+      return a.count - b.count;
     })
     .map((item) => item.word);
 }
@@ -339,7 +339,7 @@ function getMostComplexWord(words) {
   return words.reduce((mostComplex, current) => {
     const currentCount = getMorseSymbolCount(current.toUpperCase());
     const bestCount = getMorseSymbolCount(mostComplex.toUpperCase());
-    return currentCount >= bestCount ? current : mostComplex;  // BUG 10: era currentCount > bestCount — >= rompe el desempate (retorna el último en lugar del primero)
+    return currentCount >= bestCount ? current : mostComplex;
   });
 }
 
@@ -365,7 +365,7 @@ function compareMorseComplexity(text1, text2) {
       .filter((ch) => ch === '.' || ch === '-').length;
 
   const count1 = countSymbols(text1);
-  const count2 = countSymbols(text1);  // BUG 11: era countSymbols(text2) — usa text1 dos veces, siempre da diferencia 0
+  const count2 = countSymbols(text1);
   const difference = Math.abs(count1 - count2);
 
   if (count1 === count2) {
@@ -402,7 +402,6 @@ function getTopNWords(text, n) {
         .every((ch) => Object.prototype.hasOwnProperty.call(MORSE_CODE, ch))
     )
     .sort((a, b) => getMorseSymbolCount(b) - getMorseSymbolCount(a));
-    // BUG 12: falta .slice(0, n) — devuelve todas las palabras en vez de solo las top N
 }
 
 // ---------------------------------------------------------------------------

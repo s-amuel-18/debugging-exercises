@@ -233,7 +233,7 @@ This project is designed to be LLM-friendly. See [LLM_GUIDE.md](./LLM_GUIDE.md) 
 57. ✅ **57-stock-portfolio** - Error Lógico: `getAnnualizedReturn` usa `totalReturn / years` (promedio simple) en lugar de la fórmula CAGR compuesta `(1+r)^(1/n) - 1`, sobreestimando el retorno anual (Intermedio)
 58. ✅ **58-event-calendar** - Error Lógico: `generateRecurringDates` empieza el bucle en `i = 1` en lugar de `i = 0`, omitiendo la fecha de inicio y desplazando todas las ocurrencias un intervalo hacia adelante (Principiante)
 59. ✅ **59-luhn-validator** - Error Lógico: Bug en el algoritmo de Luhn (Avanzado)
-60. ✅ **60-morse-code-translator** - Múltiples Errores (12): Tabla de códigos incorrecta, separadores erróneos, lógica invertida en validación, conteos intercambiados, orden incorrecto, comparación rota y más (Avanzado)
+60. ✅ **60-morse-code-translator** - Múltiples Errores: Defectos distribuidos a lo largo de todas las funciones del módulo de traducción Morse (Avanzado)
 
 ## 🔧 Troubleshooting
 
