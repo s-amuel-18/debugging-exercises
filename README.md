@@ -229,6 +229,7 @@ Este proyecto es ideal para:
 66. ✅ **66-expense-splitter** - Error Lógico: Bug en el cálculo de lo que debe cada participante provoca balances incorrectos en cadena (Intermedio)
 68. ✅ **68-anagram-finder** - Error Lógico: `filterWordsWithMinAnagrams` usa `>` en lugar de `>=` al comparar el umbral, excluyendo palabras con exactamente el mínimo requerido de anagramas (Intermedio)
 69. ✅ **69-matrix-stats** - Error Lógico: `colSums` usa `row[0]` en lugar de `row[col]`, produciendo la misma suma para todas las columnas (Intermedio)
+72. ✅ **72-loan-manager** - Múltiples Errores Lógicos: 6 bugs de asignación, comparación y tipos afectan disponibilidad de libros, cálculo de multas, registro de devoluciones, consulta por miembro, ordenamiento y renovaciones (Avanzado)
 
 ## 🔧 Solución de Problemas
 
